@@ -1,4 +1,5 @@
 const btn = document.getElementById('btn');
+const paragraph = document.getElementById('jokes');
 
 const loadJokes = () => {
   const myHeaders = new Headers();
@@ -12,7 +13,10 @@ const loadJokes = () => {
 
   fetch("https://icanhazdadjoke.com/", requestOptions)
     .then(response => response.json())
-    .then(result => console.log(result.joke))
+    .then(result => {
+      console.log(result.joke);
+      paragraph.innerHTML = result.joke;
+    })
     .catch(error => console.log('error', error));
 }
 
