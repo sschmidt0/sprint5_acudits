@@ -45,6 +45,32 @@ const loadWeather = () => {
   });
 }
 
-btn.addEventListener('click', loadJokes);
+const loadOtherJokes = () => {
+  const myHeaders = new Headers();
+  myHeaders.append("Cookie", "__cfduid=dc712fa911ce61a02106d1e68184ee75f1614189075");
+
+  const requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+  };
+
+  fetch("https://api.chucknorris.io/jokes/random", requestOptions)
+    .then(response => {
+      if (response.ok) return response.json();
+    })
+    .then(result => {
+      console.log(result.value);
+      paragraph.innerHTML = result.value;
+      paragraph.style.display = 'block';
+    })
+    .catch(error => console.log('error', error));
+}
+
+btn.addEventListener('click', () => {
+  let number = Math.floor(Math.random() * 10);
+  console.log(number);
+  number % 2 === 0 ? loadJokes() : loadOtherJokes();
+});
 
 loadWeather();
