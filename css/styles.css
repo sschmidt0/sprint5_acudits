@@ -1,5 +1,40 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  position: relative;
+}
+
+.image-container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../img/happy-people.jpg');
+  background-size: cover;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.weather {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-weight: 800;
+}
+
+.jokes-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 380px;
+  margin-left: -250px;
+  margin-top:  190px;
+  padding: 10px 20px;
+  text-align: center;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.22);
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  opacity: 1;
 }
 
 h1 {
@@ -7,28 +42,21 @@ h1 {
   text-align: center;
 }
 
-h1::before, h1::after {
-  content: "😂";
+h1::after {
+  content: "🤣";
   margin: 20px;
 }
 
-.jokes-box {
-  width: 70%;
-  margin: auto;
-  text-align: center;
-}
-
 button {
-  display: inline-block;
-  width: 400px;
-  padding: 20px;
+  padding: 20px 40px;
   margin-bottom: 40px;
+  margin-top: 40px;
   color: #FFFFFF;
-  background-color: #f4511e;
+  background-color: turquoise;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   text-align: center;
-  font-size: 28px;
+  font-size: 14px;
   transition: all 0.5s;
   cursor: pointer;
 }
@@ -59,5 +87,10 @@ button:hover span:after {
 }
 
 #jokes {
-  font-size: 28px;
+  display: none;
+  font-size: 20px;
+}
+
+#jokes::before, #jokes::after {
+  content: ' " ';
 }

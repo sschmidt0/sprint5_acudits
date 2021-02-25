@@ -13,10 +13,13 @@ const loadJokes = () => {
   };
 
   fetch("https://icanhazdadjoke.com/", requestOptions)
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) return response.json();
+    })
     .then(result => {
       console.log(result.joke);
       paragraph.innerHTML = result.joke;
+      paragraph.style.display = 'block';
     })
     .catch(error => console.log('error', error));
 }
@@ -45,4 +48,3 @@ const loadWeather = () => {
 btn.addEventListener('click', loadJokes);
 
 loadWeather();
-
