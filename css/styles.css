@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  margin: 70px auto 60px;
+  text-align: center;
+}
+
+h1::before, h1::after {
+  content: "😂";
+  margin: 20px;
+}
+
+.jokes-box {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+  width: 400px;
+  padding: 20px;
+  margin-bottom: 40px;
+  color: #FFFFFF;
+  background-color: #f4511e;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 28px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  top: 0;
+  right: -20px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  right: 0;
+  opacity: 1;
+}
+
+#jokes {
+  font-size: 28px;
+}
